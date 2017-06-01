@@ -1,0 +1,46 @@
+{
+  "name": "react-multistep-form",
+  "keywords": [
+    "react",
+    "form",
+    "step",
+    "multistep"
+  ],
+  "version": "1.0.0",
+  "description": "A React Component to handle multistep form with a wide range of possibilities.",
+  "main": "build/react-multistep-form.js",
+  "module": "build/react-multistep-form.es2015.js",
+  "repository": "ytase/react-multistep-form",
+  "bugs": {
+    "url": "https://github.com/ytase/react-multistep-form/issues"
+  },
+  "homepage": "https://github.com/ytase/react-multistep-form#readme",
+  "author": "Mikaël Gourlaouen <gourlaouen.mikael@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register",
+    "build:modern": "rollup -c",
+    "build:legacy": "rollup -c rollup.config.legacy.js",
+    "build": "npm run build:modern && npm run build:legacy",
+    "prepublish": "npm run test && npm run build"
+  },
+  "peerDependencies": {
+    "react": "^15.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "enzyme": "^2.8.2",
+    "expect": "^1.20.2",
+    "expect-enzyme": "^1.0.0",
+    "mocha": "^3.4.2",
+    "react": "^15.5.3",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1"
+  }
+}
