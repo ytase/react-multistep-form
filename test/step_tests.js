@@ -25,4 +25,9 @@ describe('Step Component', () => {
 		expect(wrapper.props()).toIncludeKeys(['steps', 'formState', 'changeValue', 'goToStep'])
 		expect(wrapper.prop('formState')).toEqual({email: 'john@doe.com'})
 	})
+
+	it('should render the right component', () => {
+		const wrapper = shallow(<Step component={BasicForm} context={{}} name="email" />)
+		expect(wrapper).toBeA(BasicForm)
+	})
 })

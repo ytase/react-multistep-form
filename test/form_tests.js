@@ -68,4 +68,14 @@ describe('MultiStepForm interaction', () => {
 		wrapper.prop('context').goToStep('password')
 		expect(wrapper.prop('name')).toBe('password')
 	})
+
+	it('should handle dynamically set children to add/remove steps', () => {
+		const wrapper = shallow(<MultiStepForm>
+				<Step name="email" component={BasicForm} />
+				<Step name="password" component={BasicForm} />
+			</MultiStepForm>)
+		expect(wrapper.state('steps')).toEqual(['email', 'password'])
+		wrapper.setProps({children: [<Step name="phone" component={BasicForm} />]})
+		expect(wrapper.state('steps')).toEqual(['phone'])
+	})
 })

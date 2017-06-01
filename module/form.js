@@ -21,7 +21,7 @@ class MultiStepForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.children !== this.props.children) {
-			this.setState({ steps: getStepsFromChildren(props.children) })
+			this.setState({ steps: getStepsFromChildren(nextProps.children) })
 		}
 	}
 
