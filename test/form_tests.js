@@ -9,6 +9,8 @@ expect.extend(enzymify())
 
 const BasicForm = () => <form></form>
 
+const BasicComponent = (props) => props.children
+
 describe('MultiStepForm component', () => {
 	it('should only return the current step', () => {
 		const wrapper = shallow(<MultiStepForm>
@@ -43,6 +45,16 @@ describe('MultiStepForm component', () => {
 				<Step name="password" component={BasicForm} />
 			</MultiStepForm>)
 		expect(wrapper.children()).toNotExist()
+	})
+
+	it('should return the right component if provided', () => {
+		const wrapper = shallow(<MultiStepForm component={BasicComponent}>
+				<Step name="email" component={BasicForm} />
+				<Step name="password" component={BasicForm} />
+			</MultiStepForm>)
+		expect(wrapper).toBeA(BasicComponent)
+		expect(wrapper.children().length).toBe(1)
+		expect(wrapper.childAt(0)).toBeA(Step)
 	})
 })
 

@@ -58,7 +58,7 @@ class MultiStepForm extends React.Component {
 		}
 	}
 
-	render() {
+	renderContent() {
 		const children = React.Children.toArray(this.props.children)
 		for (let i = 0; i < children.length; i++) {
 			const child = children[i]
@@ -67,6 +67,13 @@ class MultiStepForm extends React.Component {
 			}
 		}
 		return null
+	}
+
+	render() {
+		if (this.props.component) {
+			return React.createElement(this.props.component, this.stepProperties(), this.renderContent())
+		}
+		return this.renderContent()
 	}
 }
 
