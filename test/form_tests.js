@@ -91,3 +91,28 @@ describe('MultiStepForm interaction', () => {
 		expect(wrapper.state('steps')).toEqual(['phone'])
 	})
 })
+
+describe('MultiStepForm events handler', () => {
+	it('onChange should be triggered when a value is changed', () => {
+		let lastState = {}
+		const onChange = (newState) => lastState = newState
+		const wrapper = shallow(<MultiStepForm onChange={onChange}>
+			<Step name="email" component={BasicForm} />
+			<Step name="password" component={BasicForm} />
+		</MultiStepForm>)
+
+		wrapper.setState({ formState: {password: 'qwerty'} })
+		expect(lastState).toEqual({password: 'qwerty'})
+	})
+
+	it('onStepChange should be triggered when the step is changed', () => {
+		let lastStep = 'email'
+		const onStepChange = newStep => lastStep = newStep
+		const wrapper = shallow(<MultiStepForm onStepChange={onStepChange}>
+				<Step name="email" component={BasicForm} />
+				<Step name="password" component={BasicForm} />
+			</MultiStepForm>)
+		wrapper.setState({ currentStep: 'password' })
+		expect(lastStep).toBe('password')
+	})
+})

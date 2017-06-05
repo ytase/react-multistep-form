@@ -29,6 +29,9 @@ class MultiStepForm extends React.Component {
 		if (this.props.onChange && nextState.formState !== this.state.formState) {
 			this.props.onChange(nextState.formState)
 		}
+		if (this.props.onStepChange && nextState.currentStep !== this.state.currentStep) {
+			this.props.onStepChange(nextState.currentStep)
+		}
 	}
 
 	handleChangeValue(key, value) {

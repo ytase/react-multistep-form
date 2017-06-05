@@ -15,6 +15,7 @@ To install the library, just run `yarn add react-multistep-form` (or `npm instal
 - `component`: a custom component that you want to use for the layout of the form. Useful for instance to show the progress in the form or providing back  buttons etc. If not provided, the steps will just be rendered without any wrapper.
 - `initialState`: the initial values for the form. Default: `{}`
 - `onChange`: a function that will be called when any value in the form changes, with an object containing all the keys and values as a unique parameter. Default: `null`
+- `onStepChange`: a function that will be called when the step has changed in the form, with the new step name as the only argument. Default: `null`.
 
 ## Step
 
