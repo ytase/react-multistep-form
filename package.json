@@ -6,7 +6,7 @@
     "step",
     "multistep"
   ],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A React Component to handle multistep form with a wide range of possibilities.",
   "main": "build/react-multistep-form.js",
   "module": "build/react-multistep-form.es2015.js",
